@@ -142,8 +142,8 @@ static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
   NSMutableData *body = [NSMutableData data];
   NSString *beginLine = [NSString stringWithFormat:@"\r\n--%@\r\n", kStringBoundary];
 
-  [body appendData:[[NSString stringWithFormat:@"--%@\r\n", kStringBoundary]
-    dataUsingEncoding:NSUTF8StringEncoding]];
+  //[body appendData:[[NSString stringWithFormat:@"--%@\r\n", kStringBoundary]
+  //  dataUsingEncoding:NSUTF8StringEncoding]];
   
   for (id key in [_parameters keyEnumerator]) {
     NSString* value = [_parameters valueForKey:key];
