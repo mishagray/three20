@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 #import "Three20/UIViewControllerAdditions.h"
 
 #import "Three20/TTGlobalUI.h"
+#import "Three20/TTDebugFlags.h"
 #import "Three20/TTNavigator.h"
 #import "Three20/TTURLMap.h"
 
@@ -32,7 +33,7 @@ static NSMutableDictionary* gPopupViewControllers = nil;
   UIViewController* _popupViewController;
 }
 
-@property(nonatomic,retain) UIViewController* popupViewController;
+@property (nonatomic, retain) UIViewController* popupViewController;
 
 @end
 
@@ -80,7 +81,7 @@ static NSMutableDictionary* gPopupViewControllers = nil;
 
   self.superController = nil;
   self.popupViewController = nil;
-  
+
   // Calls the original dealloc, swizzled away
   [self ttdealloc];
 }
@@ -164,7 +165,7 @@ static NSMutableDictionary* gPopupViewControllers = nil;
       return [viewControllers objectAtIndex:index-1];
     }
   }
-  
+
   return nil;
 }
 
@@ -269,6 +270,10 @@ static NSMutableDictionary* gPopupViewControllers = nil;
 
 - (void)dismissModalViewController {
   [self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)canBeTopViewController {
+  return YES;
 }
 
 @end

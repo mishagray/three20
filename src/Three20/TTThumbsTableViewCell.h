@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,30 +16,29 @@
 
 #import "Three20/TTTableViewCell.h"
 
-@protocol TTPhoto, TTThumbsTableViewCellDelegate;
+@protocol TTPhoto;
+@protocol TTThumbsTableViewCellDelegate;
 @class TTThumbView;
 
 @interface TTThumbsTableViewCell : TTTableViewCell {
-  id<TTThumbsTableViewCellDelegate> _delegate;
-  id<TTPhoto> _photo;
+  id<TTPhoto>     _photo;
+
   NSMutableArray* _thumbViews;
-  CGFloat _thumbSize;
-  CGPoint _thumbOrigin;
-  NSInteger _columnCount;
+
+  CGFloat         _thumbSize;
+  CGPoint         _thumbOrigin;
+  NSInteger       _columnCount;
+
+  id<TTThumbsTableViewCellDelegate> _delegate;
 }
 
-@property(nonatomic,retain) id<TTPhoto> photo;
-@property(nonatomic,assign) id<TTThumbsTableViewCellDelegate> delegate;
-@property(nonatomic) CGFloat thumbSize;
-@property(nonatomic) CGPoint thumbOrigin;
-@property(nonatomic) NSInteger columnCount;
+@property (nonatomic, retain) id<TTPhoto> photo;
+@property (nonatomic)         CGFloat     thumbSize;
+@property (nonatomic)         CGPoint     thumbOrigin;
+@property (nonatomic)         NSInteger   columnCount;
+
+@property (nonatomic, assign) id<TTThumbsTableViewCellDelegate> delegate;
 
 - (void)suspendLoading:(BOOL)suspended;
-
-@end
-
-@protocol TTThumbsTableViewCellDelegate
-
-- (void)thumbsTableViewCell:(TTThumbsTableViewCell*)cell didSelectPhoto:(id<TTPhoto>)photo;
 
 @end

@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 #import <UIKit/UIKit.h>
 
 @class TTURLNavigatorPattern;
+@class TTURLGeneratorPattern;
 
 typedef enum {
   TTNavigationModeNone,
@@ -28,14 +29,18 @@ typedef enum {
 } TTNavigationMode;
 
 @interface TTURLMap : NSObject {
-  NSMutableDictionary* _objectMappings;
-  NSMutableArray* _objectPatterns;
-  NSMutableArray* _fragmentPatterns;
-  NSMutableDictionary* _stringPatterns;
-  NSMutableDictionary* _schemes;
-  TTURLNavigatorPattern* _defaultObjectPattern;
-  TTURLNavigatorPattern* _hashPattern;
-  BOOL _invalidPatterns;
+  NSMutableDictionary*    _objectMappings;
+
+  NSMutableArray*         _objectPatterns;
+  NSMutableArray*         _fragmentPatterns;
+  NSMutableDictionary*    _stringPatterns;
+
+  NSMutableDictionary*    _schemes;
+
+  TTURLNavigatorPattern*  _defaultObjectPattern;
+  TTURLNavigatorPattern*  _hashPattern;
+
+  BOOL                    _invalidPatterns;
 }
 
 /**
@@ -99,7 +104,7 @@ typedef enum {
  * The URL must not be a pattern - it must be the a literal URL. All requests to open this URL will
  * return the object bound to it, rather than going through the pattern matching process to create
  * a new object.
- * 
+ *
  * Mapped objects are not retained.  You are responsible for removing the mapping when the object
  * is destroyed, or risk crashes.
  */
@@ -130,14 +135,14 @@ typedef enum {
  *
  * Object mappings are checked first, and if no object is bound to the URL then pattern
  * matching is used to create a new object.
- */ 
+ */
 - (id)objectForURL:(NSString*)URL;
 - (id)objectForURL:(NSString*)URL query:(NSDictionary*)query;
 - (id)objectForURL:(NSString*)URL query:(NSDictionary*)query
       pattern:(TTURLNavigatorPattern**)pattern;
 
 /**
- * 
+ *
  */
 - (id)dispatchURL:(NSString*)URL toTarget:(id)target query:(NSDictionary*)query;
 
@@ -166,24 +171,5 @@ typedef enum {
  */
 - (NSString*)URLForObject:(id)object;
 - (NSString*)URLForObject:(id)object withName:(NSString*)name;
-
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@protocol TTURLObject <NSObject>
-
-@optional
-
-/**
- * Converts the object to a URL using TTURLMap.
- */
-@property(nonatomic,readonly) NSString* URLValue;
-
-/**
- * Converts the object to a specially-named URL using TTURLMap.
- */
-- (NSString*)URLValueWithName:(NSString*)name;
-
 
 @end

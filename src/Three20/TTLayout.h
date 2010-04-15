@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@
   CGFloat _spacing;
 }
 
-@property(nonatomic) CGFloat padding;
-@property(nonatomic) CGFloat spacing;
+@property (nonatomic) CGFloat padding;
+@property (nonatomic) CGFloat spacing;
 
 @end
 
@@ -43,8 +43,8 @@
   CGFloat _spacing;
 }
 
-@property(nonatomic) NSInteger columnCount;
-@property(nonatomic) CGFloat padding;
-@property(nonatomic) CGFloat spacing;
+@property (nonatomic) NSInteger columnCount;
+@property (nonatomic) CGFloat padding;
+@property (nonatomic) CGFloat spacing;
 
 @end

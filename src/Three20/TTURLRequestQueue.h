@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,75 +20,83 @@
 @class TTURLRequest;
 
 @interface TTURLRequestQueue : NSObject {
-  NSMutableDictionary* _loaders;
-  NSMutableArray* _loaderQueue;
-  NSTimer* _loaderQueueTimer;
-  NSInteger _totalLoading;
-  NSUInteger _maxContentLength;
-  NSString* _userAgent;
-  CGFloat _imageCompressionQuality;
-  BOOL _suspended;
+  NSMutableDictionary*  _loaders;
+  NSMutableArray*       _loaderQueue;
+  NSTimer*              _loaderQueueTimer;
+  NSInteger             _totalLoading;
+  NSUInteger            _maxContentLength;
+  NSString*             _userAgent;
+  CGFloat               _imageCompressionQuality;
+  BOOL                  _suspended;
 }
 
 /**
  * Gets the flag that determines if new load requests are allowed to reach the network.
  *
  * Because network requests tend to slow down performance, this property can be used to
- * temporarily delay them.  All requests made while suspended are queued, and when 
+ * temporarily delay them.  All requests made while suspended are queued, and when
  * suspended becomes false again they are executed.
  */
-@property(nonatomic) BOOL suspended;
+@property (nonatomic) BOOL suspended;
 
 /**
  * The maximum size of a download that is allowed.
  *
  * If a response reports a content length greater than the max, the download will be
- * cancelled.  This is helpful for preventing excessive memory usage.  Setting this to 
- * zero will allow all downloads regardless of size.  The default is a relatively large value.
+ * cancelled. This is helpful for preventing excessive memory usage. Setting this to
+ * zero will allow all downloads regardless of size.
+ *
+ * @default 150000 bytes
  */
-@property(nonatomic) NSUInteger maxContentLength;
+@property (nonatomic) NSUInteger maxContentLength;
 
 /**
  * The user-agent string that is sent with all HTTP requests.
+ * If set to 'nil', User-Agent set by NSURLRequest will be used,
+ * which looks like: 'APP_NAME/N.N CFNetwork/NNN Darwin/NN.N.NNN'.
+ *
+ * @default nil
  */
-@property(nonatomic,copy) NSString* userAgent;
+@property (nonatomic, copy) NSString* userAgent;
 
 /**
  * The compression quality used for encoding images sent with HTTP posts.
+ *
+ * @default 0.75
  */
-@property(nonatomic) CGFloat imageCompressionQuality;
+@property (nonatomic) CGFloat imageCompressionQuality;
 
 /**
- * Gets the shared cache singleton used across the application.
+ * Get the shared cache singleton used across the application.
  */
 + (TTURLRequestQueue*)mainQueue;
 
 /**
- * Sets the shared cache singleton used across the application.
+ * Set the shared cache singleton used across the application.
  */
 + (void)setMainQueue:(TTURLRequestQueue*)queue;
 
 /**
- * Loads a request from the cache or the network if it is not in the cache.
+ * Load a request from the cache or the network if it is not in the cache.
  *
  * @return YES if the request was loaded synchronously from the cache.
  */
 - (BOOL)sendRequest:(TTURLRequest*)request;
 
 /**
- * Synchronously loads a request from the cache or the network if it is not in the cache.
+ * Synchronously load a request from the cache or the network if it is not in the cache.
  *
  * @return YES if the request was loaded from the cache.
  */
 - (BOOL)sendSynchronousRequest:(TTURLRequest*)request;
 
 /**
- * Cancels a request that is in progress.
+ * Cancel a request that is in progress.
  */
 - (void)cancelRequest:(TTURLRequest*)request;
 
 /**
- * Cancels all active or pending requests whose delegate or response is an object.
+ * Cancel all active or pending requests whose delegate or response is an object.
  *
  * This is useful for when an object is about to be destroyed and you want to remove pointers
  * to it from active requests to prevent crashes when those pointers are later referenced.
@@ -101,7 +109,7 @@
 - (void)cancelAllRequests;
 
 /**
- * Creates a Cocoa URL request from a Three20 URL request.
+ * Create a Cocoa URL request from a Three20 URL request.
  */
 - (NSURLRequest*)createNSURLRequest:(TTURLRequest*)request URL:(NSURL*)URL;
 

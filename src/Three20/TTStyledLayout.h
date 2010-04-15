@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,11 +43,11 @@
   NSMutableArray* _invalidImages;
 }
 
-@property(nonatomic) CGFloat width;
-@property(nonatomic) CGFloat height;
-@property(nonatomic,retain) UIFont* font;
-@property(nonatomic,readonly) TTStyledFrame* rootFrame;
-@property(nonatomic,retain) NSMutableArray* invalidImages;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
+@property (nonatomic, retain) UIFont* font;
+@property (nonatomic, readonly) TTStyledFrame* rootFrame;
+@property (nonatomic, retain) NSMutableArray* invalidImages;
 
 - (id)initWithRootNode:(TTStyledNode*)rootNode;
 - (id)initWithX:(CGFloat)x width:(CGFloat)width height:(CGFloat)height;

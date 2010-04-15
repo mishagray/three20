@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,9 +30,9 @@
   BOOL _parseURLs;
 }
 
-@property(nonatomic, retain) TTStyledNode* rootNode;
-@property(nonatomic) BOOL parseLineBreaks;
-@property(nonatomic) BOOL parseURLs;
+@property (nonatomic, retain) TTStyledNode* rootNode;
+@property (nonatomic) BOOL parseLineBreaks;
+@property (nonatomic) BOOL parseURLs;
 
 - (void)parseXHTML:(NSString*)html;
 - (void)parseText:(NSString*)string;

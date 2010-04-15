@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -27,29 +27,22 @@
  * scrolling the table.  TTTableViewController automatically assigns an instance of this
  * delegate class to your table, but you can override the createDelegate method there to provide
  * a delegate implementation of your own.
+ *
+ * If you would like to change the background color of the section headers, specify the
+ * tableHeaderTintColor property in your global style sheet.
+ *
+ * This is also where the table view menu is hidden if the user starts scrolling.
+ *
+ * TODO(jverkoey 04/13/2010): Rename this object because it's not a protocol, and therefor
+ * shouldn't be affixed the "Delegate" title.
  */
 @interface TTTableViewDelegate : NSObject <UITableViewDelegate> {
-  TTTableViewController* _controller;
-  NSMutableDictionary* _headers;
+  TTTableViewController*  _controller;
+  NSMutableDictionary*    _headers;
 }
 
 - (id)initWithController:(TTTableViewController*)controller;
 
-@property(nonatomic,readonly) TTTableViewController* controller;
+@property (nonatomic, readonly) TTTableViewController* controller;
 
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@interface TTTableViewVarHeightDelegate : TTTableViewDelegate
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@interface TTTableViewPlainDelegate : TTTableViewDelegate
-@end
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-@interface TTTableViewPlainVarHeightDelegate : TTTableViewVarHeightDelegate
 @end

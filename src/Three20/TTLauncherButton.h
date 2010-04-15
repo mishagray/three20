@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,20 +16,22 @@
 
 #import "Three20/TTButton.h"
 
-@class TTLauncherItem, TTLabel;
+@class TTLauncherItem;
+@class TTLabel;
 
 @interface TTLauncherButton : TTButton {
   TTLauncherItem* _item;
-  TTLabel* _badge;
-  TTButton* _closeButton;
+  TTLabel*        _badge;
+  TTButton*       _closeButton;
+
   BOOL _dragging;
   BOOL _editing;
 }
 
-@property(nonatomic,readonly) TTLauncherItem* item;
-@property(nonatomic,readonly) TTButton* closeButton;
-@property(nonatomic) BOOL dragging;
-@property(nonatomic) BOOL editing;
+@property (nonatomic, readonly) TTLauncherItem* item;
+@property (nonatomic, readonly) TTButton*       closeButton;
+@property (nonatomic)           BOOL            dragging;
+@property (nonatomic)           BOOL            editing;
 
 - (id)initWithItem:(TTLauncherItem*)item;
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 /**
  * Converts the object to a URL using TTURLMap.
  */
-@property(nonatomic,readonly) NSString* URLValue;
+@property (nonatomic, readonly) NSString* URLValue;
 
 /**
  * Converts the object to a specially-named URL using TTURLMap.

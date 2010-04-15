@@ -1,5 +1,5 @@
 //
-// Copyright 2009 Facebook
+// Copyright 2009-2010 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,39 +23,6 @@
 #define __TTDEPRECATED_METHOD __attribute__((deprecated))
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Logging Helpers
-
-// Deprecated, please see Three20/TTDebug.h for more details.
-#ifdef DEBUG
-#define TTLOG TTDeprecatedLog
-#else
-#define TTLOG    
-#endif
-
-// Deprecated, please see Three20/TTDebug.h for more details.
-#define TTWARN TTLOG
-
-
-// Helper
-
-#define TTLOGRECT(rect) \
-  TTDINFO(@"%s x=%f, y=%f, w=%f, h=%f", #rect, rect.origin.x, rect.origin.y, \
-    rect.size.width, rect.size.height)
-
-#define TTLOGPOINT(pt) \
-  TTDINFO(@"%s x=%f, y=%f", #pt, pt.x, pt.y)
-
-#define TTLOGSIZE(size) \
-  TTDINFO(@"%s w=%f, h=%f", #size, size.width, size.height)
-
-#define TTLOGEDGES(edges) \
-  TTDINFO(@"%s left=%f, right=%f, top=%f, bottom=%f", #edges, edges.left, edges.right, \
-    edges.top, edges.bottom)
-
-#define TTLOGHSV(_COLOR) \
-  TTDINFO(@"%s h=%f, s=%f, v=%f", #_COLOR, _COLOR.hue, _COLOR.saturation, _COLOR.value)
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // Errors
 
 #define TT_ERROR_DOMAIN @"three20.net"
@@ -66,15 +33,17 @@
 // Time
 
 #define TT_MINUTE 60
-#define TT_HOUR (60*TT_MINUTE)
-#define TT_DAY (24*TT_HOUR)
-#define TT_WEEK (7*TT_DAY)
-#define TT_MONTH (30.5*TT_DAY)
-#define TT_YEAR (365*TT_DAY)
+#define TT_HOUR   (60 * TT_MINUTE)
+#define TT_DAY    (24 * TT_HOUR)
+#define TT_WEEK   (7 * TT_DAY)
+#define TT_MONTH  (30.5 * TT_DAY)
+#define TT_YEAR   (365 * TT_DAY)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// Safe releases
 
 #define TT_RELEASE_SAFELY(__POINTER) { [__POINTER release]; __POINTER = nil; }
-#define TT_AUTORELEASE_SAFELY(__POINTER) { [__POINTER autorelease]; __POINTER = nil; }
 #define TT_INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
+
+// Release a CoreFoundation object safely.
 #define TT_RELEASE_CF_SAFELY(__REF) { if (nil != (__REF)) { CFRelease(__REF); __REF = nil; } }
