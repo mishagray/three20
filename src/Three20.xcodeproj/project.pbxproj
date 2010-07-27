@@ -189,6 +189,10 @@
 		6EFDD7011176468000BAE58A /* TTTableSubtitleItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EFDD7001176468000BAE58A /* TTTableSubtitleItemCell.h */; };
 		6EFDD7081176473E00BAE58A /* TTTableMessageItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDD7061176473E00BAE58A /* TTTableMessageItemCell.m */; };
 		6EFDD70A1176474600BAE58A /* TTTableMessageItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EFDD7091176474600BAE58A /* TTTableMessageItemCell.h */; };
+		9BF43C6911FF6F0300A79C15 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF43C6811FF6F0300A79C15 /* QuartzCore.framework */; };
+		9BF43CA811FF6F9600A79C15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF43CA711FF6F9600A79C15 /* UIKit.framework */; };
+		9BF43CFD11FF6FAE00A79C15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF43CFC11FF6FAE00A79C15 /* CoreGraphics.framework */; };
+		9BF43CFF11FF6FB500A79C15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF43CFE11FF6FB500A79C15 /* Foundation.framework */; };
 		BE1288060F896A0A00F65EA2 /* TTStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = BE1288050F896A0A00F65EA2 /* TTStyle.h */; };
 		BE1288080F896A1900F65EA2 /* TTStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1288070F896A1900F65EA2 /* TTStyle.m */; };
 		BE1288CB0F89812E00F65EA2 /* TTShape.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1288CA0F89812E00F65EA2 /* TTShape.m */; };
@@ -341,9 +345,6 @@
 		BEF31F960F352E64000DE5D2 /* TTViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6D0F352E64000DE5D2 /* TTViewController.h */; };
 		BEF31F970F352E64000DE5D2 /* TTYouTubeView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6E0F352E64000DE5D2 /* TTYouTubeView.h */; };
 		BEF31F980F352E64000DE5D2 /* Three20.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF31F6F0F352E64000DE5D2 /* Three20.h */; };
-		BEF320350F352E7A000DE5D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		BEF320360F352E7A000DE5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		BEF320370F352E7A000DE5D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		BEF341950F8042440027E93C /* TTStyledTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF341940F8042440027E93C /* TTStyledTextLabel.m */; };
 		BEF341970F8042520027E93C /* TTStyledTextLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF341960F8042520027E93C /* TTStyledTextLabel.h */; };
 		BEF45BC61019CA4400E9EC07 /* TTPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF45BC41019CA4400E9EC07 /* TTPostController.m */; };
@@ -375,8 +376,6 @@
 		EB9E6CA410B6AD9400DE563C /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB210D10FA3E77E007DEE5F /* NSStringAdditions.m */; };
 		EB9E6CAC10B6AE0F00DE563C /* TTMarkupStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E6CAA10B6AE0F00DE563C /* TTMarkupStripper.m */; };
 		EB9E6CDC10B6AECE00DE563C /* TTMarkupStripper.h in Headers */ = {isa = PBXBuildFile; fileRef = EB9E6CDB10B6AECE00DE563C /* TTMarkupStripper.h */; };
-		EB9E6CEE10B6AFA000DE563C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9E6CED10B6AFA000DE563C /* QuartzCore.framework */; };
-		EB9E6CF310B6AFB200DE563C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		EB9E6CF810B6AFE000DE563C /* TTMarkupStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E6CAA10B6AE0F00DE563C /* TTMarkupStripper.m */; };
 		EB9E6CFE10B6B01800DE563C /* UINSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9E6CFC10B6B01800DE563C /* UINSStringAdditions.m */; };
 		EB9E6D3910B6B0E200DE563C /* UINSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = EB9E6D3810B6B0E200DE563C /* UINSStringAdditions.h */; };
@@ -396,9 +395,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6E14D7E610E09A2300445222 /* TTURLDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLDataResponse.m; sourceTree = "<group>"; };
 		6E14D81210E0A12700445222 /* TTURLImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLImageResponse.m; sourceTree = "<group>"; };
 		6E14D82810E0A16700445222 /* TTURLImageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTURLImageResponse.h; path = Three20/TTURLImageResponse.h; sourceTree = "<group>"; };
@@ -579,6 +575,10 @@
 		6EFDD7001176468000BAE58A /* TTTableSubtitleItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTableSubtitleItemCell.h; path = Three20/TTTableSubtitleItemCell.h; sourceTree = "<group>"; };
 		6EFDD7061176473E00BAE58A /* TTTableMessageItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTableMessageItemCell.m; sourceTree = "<group>"; };
 		6EFDD7091176474600BAE58A /* TTTableMessageItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTableMessageItemCell.h; path = Three20/TTTableMessageItemCell.h; sourceTree = "<group>"; };
+		9BF43C6811FF6F0300A79C15 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		9BF43CA711FF6F9600A79C15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9BF43CFC11FF6FAE00A79C15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9BF43CFE11FF6FB500A79C15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE1288050F896A0A00F65EA2 /* TTStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStyle.h; path = Three20/TTStyle.h; sourceTree = "<group>"; };
 		BE1288070F896A1900F65EA2 /* TTStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyle.m; sourceTree = "<group>"; };
 		BE1288CA0F89812E00F65EA2 /* TTShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTShape.m; sourceTree = "<group>"; };
@@ -760,7 +760,6 @@
 		EB9E6C7C10B6A98100DE563C /* CoreAdditionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreAdditionTests.m; path = tests/CoreAdditionTests.m; sourceTree = "<group>"; };
 		EB9E6CAA10B6AE0F00DE563C /* TTMarkupStripper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMarkupStripper.m; sourceTree = "<group>"; };
 		EB9E6CDB10B6AECE00DE563C /* TTMarkupStripper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMarkupStripper.h; path = Three20/TTMarkupStripper.h; sourceTree = "<group>"; };
-		EB9E6CED10B6AFA000DE563C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EB9E6CFC10B6B01800DE563C /* UINSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINSStringAdditions.m; sourceTree = "<group>"; };
 		EB9E6D3810B6B0E200DE563C /* UINSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UINSStringAdditions.h; path = Three20/UINSStringAdditions.h; sourceTree = "<group>"; };
 		EB9E6E3810B7300100DE563C /* TTGlobalCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalCore.m; sourceTree = "<group>"; };
@@ -779,9 +778,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF320350F352E7A000DE5D2 /* UIKit.framework in Frameworks */,
-				BEF320360F352E7A000DE5D2 /* Foundation.framework in Frameworks */,
-				BEF320370F352E7A000DE5D2 /* CoreGraphics.framework in Frameworks */,
+				9BF43C6911FF6F0300A79C15 /* QuartzCore.framework in Frameworks */,
+				9BF43CA811FF6F9600A79C15 /* UIKit.framework in Frameworks */,
+				9BF43CFD11FF6FAE00A79C15 /* CoreGraphics.framework in Frameworks */,
+				9BF43CFF11FF6FB500A79C15 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,8 +789,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9E6CEE10B6AFA000DE563C /* QuartzCore.framework in Frameworks */,
-				EB9E6CF310B6AFB200DE563C /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,10 +824,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB9E6CED10B6AFA000DE563C /* QuartzCore.framework */,
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				9BF43CA711FF6F9600A79C15 /* UIKit.framework */,
+				9BF43C6811FF6F0300A79C15 /* QuartzCore.framework */,
+				9BF43CFC11FF6FAE00A79C15 /* CoreGraphics.framework */,
+				9BF43CFE11FF6FB500A79C15 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2122,7 +2120,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = "Debug Dev";
 		};
@@ -2136,8 +2134,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				PREBINDING = NO;
 				PRODUCT_NAME = Three20;
+				SDKROOT = iphoneos4.0;
 			};
 			name = "Debug Dev";
 		};
@@ -2180,8 +2180,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Three20_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				PREBINDING = NO;
 				PRODUCT_NAME = Three20;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -2194,8 +2196,10 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Three20_Prefix.pch;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				PREBINDING = NO;
 				PRODUCT_NAME = Three20;
+				SDKROOT = iphoneos4.0;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2211,7 +2215,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -2224,7 +2228,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
