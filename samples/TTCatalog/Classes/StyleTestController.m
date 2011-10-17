@@ -1,4 +1,6 @@
 #import "StyleTestController.h"
+#import <Three20Style/UIColorAdditions.h>
+#import <Three20UI/UIViewAdditions.h>
 
 @implementation StyleTestController
 
@@ -11,11 +13,11 @@
 	scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   scrollView.backgroundColor = RGBCOLOR(216, 221, 231);
   self.view = scrollView;
-  
+
   UIColor* black = RGBCOLOR(158, 163, 172);
   UIColor* blue = RGBCOLOR(191, 197, 208);
   UIColor* darkBlue = RGBCOLOR(109, 132, 162);
-  
+
   NSArray* styles = [NSArray arrayWithObjects:
     // Rectangle
     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
@@ -43,20 +45,49 @@
     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
     [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
 
-    // SpeechBubble
-    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:60
-                                                      pointAngle:90
-                                                      pointSize:CGSizeMake(20,10)] next:
-    [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
-    [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
+    // SpeechBubble with pointer left of the centre on the top edge
+    // Locations for top edge are 45 on the left, 90 in the centre, 134.999 on the right
+    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 
+                                                        pointLocation:60
+                                                           pointAngle:90
+                                                            pointSize:CGSizeMake(20,10)] next:
+     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
+      [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
 
-    // SpeechBubble
-    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:290
-                                                      pointAngle:270
-                                                      pointSize:CGSizeMake(20,10)] next:
-    [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
-    [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
-       
+     // SpeechBubble with pointer on the extreme left on the bottom edge
+     // Locations for bottom edge are 225 on the left, 270 in the centre, 314.999 on the left
+    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 
+                                                        pointLocation:314
+                                                           pointAngle:270
+                                                            pointSize:CGSizeMake(20,10)] next:
+     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
+      [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
+    
+    // SpeechBubble with pointer on the bottom of the left edge
+    // Locations for left edge are 315 on the bottom, 0 in the centre, 44.999 on top
+    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 
+                                                        pointLocation:315
+                                                           pointAngle:0
+                                                            pointSize:CGSizeMake(10,20)] next:
+     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
+      [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
+    
+    // SpeechBubble with pointer on the centre of the left edge
+    // Locations for left edge are 315 on the bottom, 0 in the centre, 44.999 on top
+    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:0
+                                                           pointAngle:0
+                                                            pointSize:CGSizeMake(20,10)] next:
+     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
+      [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
+    
+    // SpeechBubble with pointer on the bottom of the right hand edge
+    // Locations for right edge are 135 on top, 180 in the middle, 314.999 on the bottom
+    [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:224
+                                                           pointAngle:180
+                                                            pointSize:CGSizeMake(15,15)] next:
+     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
+      [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]],
+    
     // Drop shadow
     [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:10] next:
     [TTShadowStyle styleWithColor:RGBACOLOR(0,0,0,0.5) blur:5 offset:CGSizeMake(2, 2) next:
@@ -77,13 +108,13 @@
     [TTLinearGradientFillStyle styleWithColor1:RGBCOLOR(255, 255, 255)
                                color2:RGBCOLOR(216, 221, 231) next:
     [TTSolidBorderStyle styleWithColor:blue width:1 next:nil]]]],
-    
+
     // Embossed button
     [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:10] next:
     [TTLinearGradientFillStyle styleWithColor1:RGBCOLOR(255, 255, 255)
                                color2:RGBCOLOR(216, 221, 231) next:
     [TTFourBorderStyle styleWithTop:blue right:black bottom:black left:blue width:1 next:nil]]],
-    
+
     // Toolbar button
     [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:4.5] next:
     [TTShadowStyle styleWithColor:RGBCOLOR(255,255,255) blur:1 offset:CGSizeMake(0, 1) next:
@@ -119,12 +150,17 @@
     [TTLinearGradientFillStyle styleWithColor1:RGBCOLOR(0, 180, 231)
                                color2:RGBCOLOR(0, 0, 255) next:nil]],
 
+    // simple bottom only border
+    [TTShapeStyle styleWithShape:[TTRectangleShape shape] next:
+    [TTSolidFillStyle styleWithColor:RGBCOLOR(255, 255, 255) next:
+    [TTFourBorderStyle styleWithTop:nil right:nil bottom:black left:nil width:5 next:nil]]],
+
     nil];
-  
-  CGFloat padding = 10;
+
+  CGFloat padding = 10.0f;
   CGFloat viewWidth = scrollView.width/2 - padding*2;
   CGFloat viewHeight = TT_ROW_HEIGHT;
-  
+
   CGFloat x = padding;
   CGFloat y = padding;
   for (TTStyle* style in styles) {
@@ -138,10 +174,10 @@
     view.backgroundColor = scrollView.backgroundColor;
     view.style = style;
     [scrollView addSubview:view];
-    
+
     x += frame.size.width + padding;
   }
-  
+
   scrollView.contentSize = CGSizeMake(scrollView.width, y + viewHeight + padding);
 }
 

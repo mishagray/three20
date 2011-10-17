@@ -1,5 +1,5 @@
 //
-// Copyright 2009-2010 Facebook
+// Copyright 2009-2011 Facebook
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,6 +18,9 @@
 
 #import "TTTwitterSearchFeedModel.h"
 #import "TTTwitterTweet.h"
+
+// Three20 Additions
+#import <Three20Core/NSDateAdditions.h>
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,13 +61,22 @@
     //TTDPRINT(@"Response text: %@", response.text);
     TTStyledText* styledText = [TTStyledText textFromXHTML:
                                 [NSString stringWithFormat:@"%@\n<b>%@</b>",
-                                 [tweet.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"],
+                                 [[tweet.text stringByReplacingOccurrencesOfString:@"&"
+                                                                        withString:@"&amp;"]
+                                  stringByReplacingOccurrencesOfString:@"<"
+                                  withString:@"&lt;"],
                                  [tweet.created formatRelativeTime]]
                                                 lineBreaks:YES URLs:YES];
+    // If this asserts, it's likely that the tweet.text contains an HTML character that caused
+    // the XML parser to fail.
     TTDASSERT(nil != styledText);
     [items addObject:[TTTableStyledTextItem itemWithText:styledText]];
   }
   
+  if (!_searchFeedModel.finished) {
+    [items addObject:[TTTableMoreButton itemWithText:@"more…"]];
+  }
+
   self.items = items;
   TT_RELEASE_SAFELY(items);
 }
