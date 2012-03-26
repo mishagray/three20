@@ -42,4 +42,8 @@
 
 - (void)suspendLoading:(BOOL)suspended;
 
++ (CGFloat) defaultThumbSize;
++ (CGFloat) defaultThumbSpacing;
+
+
 @end

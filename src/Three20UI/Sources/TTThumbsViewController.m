@@ -160,7 +160,8 @@ static CGFloat kThumbnailRowHeight = 79.0f;
 - (void)loadView {
   [super loadView];
 
-  self.tableView.rowHeight = kThumbnailRowHeight;
+  self.tableView.rowHeight = [TTThumbsTableViewCell defaultThumbSize] +
+                                [TTThumbsTableViewCell defaultThumbSpacing] + 1;
   self.tableView.autoresizingMask =
   UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   self.tableView.backgroundColor = TTSTYLEVAR(backgroundColor);

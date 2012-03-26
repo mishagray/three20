@@ -32,8 +32,7 @@
 #import "Three20Core/TTGlobalCoreLocale.h"
 #import "Three20Core/TTCorePreprocessorMacros.h"
 
-static CGFloat kThumbSize = 75.0f;
-static CGFloat kThumbSpacing = 4.0f;
+// static CGFloat kThumbSpacing = 4.0f;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,6 +42,8 @@ static CGFloat kThumbSpacing = 4.0f;
 
 @synthesize photoSource = _photoSource;
 @synthesize delegate    = _delegate;
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +82,9 @@ static CGFloat kThumbSpacing = 4.0f;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSInteger)columnCountForView:(UIView *)view {
   CGFloat width = view.bounds.size.width;
-  return floorf((width - kThumbSpacing*2) / (kThumbSize+kThumbSpacing) + 0.1);
+  return floorf((width - ([TTThumbsTableViewCell defaultThumbSpacing]*2)) /
+                ([TTThumbsTableViewCell defaultThumbSize]+
+                 [TTThumbsTableViewCell defaultThumbSpacing]) + 0.1);
 }
 
 

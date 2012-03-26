@@ -26,8 +26,8 @@
 // Core
 #import "Three20Core/TTCorePreprocessorMacros.h"
 
-static const CGFloat kSpacing = 4.0f;
-static const CGFloat kDefaultThumbSize = 75.0f;
+// static const CGFloat kSpacing = 4.0f;
+// static const CGFloat kDefaultThumbSize = 75.0f;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,14 +41,44 @@ static const CGFloat kDefaultThumbSize = 75.0f;
 @synthesize columnCount = _columnCount;
 @synthesize delegate    = _delegate;
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (CGFloat) defaultThumbSize {
+
+    static CGFloat _thumbSize = 0.0;
+    if (_thumbSize == 0.0) {
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            //            _thumbSpacing = 6.0;
+            _thumbSize = 250.0;
+        }
+        else {
+            _thumbSize = 75.0;
+        }
+    }
+    return _thumbSize;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (CGFloat) defaultThumbSpacing {
+    static CGFloat _thumbSpacing = 0.0;
+    if (_thumbSpacing == 0.0) {
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            _thumbSpacing = 6.0;
+        }
+        else {
+            _thumbSpacing = 4.0;
+        }
+    }
+    return _thumbSpacing;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)identifier {
 	self = [super initWithStyle:style reuseIdentifier:identifier];
   if (self) {
     _thumbViews = [[NSMutableArray alloc] init];
-    _thumbSize = kDefaultThumbSize;
-    _thumbOrigin = CGPointMake(kSpacing, 0);
+    _thumbSize = [TTThumbsTableViewCell defaultThumbSize];
+    _thumbOrigin = CGPointMake([TTThumbsTableViewCell defaultThumbSpacing], 0);
 
     self.accessoryType = UITableViewCellAccessoryNone;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -104,7 +134,7 @@ static const CGFloat kDefaultThumbSize = 75.0f;
 
   for (TTThumbView* thumbView in _thumbViews) {
     thumbView.frame = thumbFrame;
-    thumbFrame.origin.x += kSpacing + self.thumbSize;
+    thumbFrame.origin.x += [TTThumbsTableViewCell defaultThumbSpacing] + self.thumbSize;
   }
 }
 
