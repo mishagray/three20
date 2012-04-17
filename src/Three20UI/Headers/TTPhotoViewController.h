@@ -114,4 +114,8 @@
  */
 - (void)showActivity:(NSString*)title;
 
+/**
+ * updates the View's navbar
+ */
+- (void)updateChrome;
 @end
