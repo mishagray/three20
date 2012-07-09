@@ -45,6 +45,6 @@
  *
  * @return the base64 encoded string
  */
-- (NSString *)base64Encoding;
+- (NSString *)_base64Encoding;
 
 @end

@@ -131,7 +131,7 @@ static const char encodingTable[] =
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)base64Encoding {
+- (NSString *)_base64Encoding {
   if ([self length] == 0)
     return @"";
 
