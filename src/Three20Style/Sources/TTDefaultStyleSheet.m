@@ -556,7 +556,7 @@
   return
     [TTInsetStyle styleWithInset:UIEdgeInsetsMake(6, 5, 6, 5) next:
     [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:15] next:
-    [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:nil]]];
+     [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:nil]]];
 }
 
 
