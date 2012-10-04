@@ -106,7 +106,9 @@
   for (NSString* name in [_query keyEnumerator]) {
     id<TTURLPatternText> patternText = [_query objectForKey:name];
     NSString* value = [patternText convertPropertyOfObject:object];
-    NSString* pair = [NSString stringWithFormat:@"%@=%@", name, value];
+    NSString *encodedValue = [value stringByAddingPercentEscapesUsingEncoding:
+                 NSASCIIStringEncoding];
+    NSString* pair = [NSString stringWithFormat:@"%@=%@", name, encodedValue];
     if (!queries) {
       queries = [NSMutableArray array];
     }
