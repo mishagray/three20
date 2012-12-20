@@ -49,4 +49,10 @@
  */
 - (NSString*)URLForVersion:(TTPhotoVersion)version;
 
+@optional
+/**
+ * Gets the URL of one of the differently sized versions of the photo.
+ */
+- (NSString*)URLForSize:(CGSize)size;
+
 @end

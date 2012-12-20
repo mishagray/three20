@@ -16,9 +16,11 @@
 
 // UI
 #import "Three20UI/TTButton.h"
+@protocol TTPhoto;
 
 @interface TTThumbView : TTButton
 
 @property (nonatomic, copy) NSString* thumbURL;
+@property (nonatomic, retain) id<TTPhoto> photo;
 
 @end
