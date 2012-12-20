@@ -89,8 +89,14 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)loadVersion:(TTPhotoVersion)version fromNetwork:(BOOL)fromNetwork {
-  NSString* URL = [_photo URLForVersion:version];
-  if (URL) {
+    NSString* URL  = nil;
+    if ([_photo respondsToSelector:@selector(URLForSize:)]) {
+        URL = [_photo URLForSize:self.frame.size];
+    }
+    else {
+        URL = [_photo URLForVersion:version];
+    }
+   if (URL) {
     UIImage* image = [[TTURLCache sharedCache] imageForURL:URL];
     if (image || fromNetwork) {
       _photoVersion = version;
