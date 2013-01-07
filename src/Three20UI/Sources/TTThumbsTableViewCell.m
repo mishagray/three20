@@ -107,11 +107,13 @@
 - (void)assignPhotoAtIndex:(int)photoIndex toView:(TTThumbView*)thumbView {
   id<TTPhoto> photo = [_photo.photoSource photoAtIndex:photoIndex];
   if (photo) {
-      if ([photo respondsToSelector:@selector(URLForSize:)])
-          thumbView.thumbURL = [photo URLForSize:thumbView.frame.size];
-      else
-          thumbView.thumbURL = [photo URLForVersion:TTPhotoVersionThumbnail];
-      
+      if ([photo respondsToSelector:@selector(URLForSize:andContentMode:)]) {
+          thumbView.thumbURL = [photo URLForSize:thumbView.frame.size
+                                  andContentMode:UIViewContentModeScaleAspectFit];
+      }
+      else {
+        thumbView.thumbURL = [photo URLForVersion:TTPhotoVersionThumbnail];
+      }
       thumbView.hidden = NO;
       thumbView.photo = photo;
 
@@ -141,7 +143,8 @@
     thumbView.frame = thumbFrame;
     thumbFrame.origin.x += [TTThumbsTableViewCell defaultThumbSpacing] + self.thumbSize;
     if ([thumbView.photo respondsToSelector:@selector(URLForSize:)])
-          thumbView.thumbURL = [thumbView.photo URLForSize:thumbView.frame.size];
+        thumbView.thumbURL = [thumbView.photo URLForSize:thumbView.frame.size
+                                          andContentMode:UIViewContentModeScaleAspectFill];
 
   }
 }

@@ -53,6 +53,6 @@
 /**
  * Gets the URL of one of the differently sized versions of the photo.
  */
-- (NSString*)URLForSize:(CGSize)size;
+- (NSString*)URLForSize:(CGSize)size andContentMode:(UIViewContentMode)contentMode;
 
 @end

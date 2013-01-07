@@ -90,12 +90,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)loadVersion:(TTPhotoVersion)version fromNetwork:(BOOL)fromNetwork {
     NSString* URL  = nil;
-    if ([_photo respondsToSelector:@selector(URLForSize:)]) {
-        URL = [_photo URLForSize:self.frame.size];
-    }
-    else {
+//    if ([_photo respondsToSelector:@selector(URLForSize:andContentMode:)]) {
+//        URL = [_photo URLForSize:self.frame.size andContentMode:self.contentMode];
+//    }
+//    else {
         URL = [_photo URLForVersion:version];
-    }
+//    }
    if (URL) {
     UIImage* image = [[TTURLCache sharedCache] imageForURL:URL];
     if (image || fromNetwork) {
@@ -187,6 +187,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)layoutSubviews {
   CGRect screenBounds = TTScreenBounds();
+//    if ([_photo respondsToSelector:@selector(URLForSize:andContentMode:)]) {
+//        CGFloat maxBoundsSize = MAX(screenBounds.size.height,screenBounds.size.width);
+//        NSString * newUrl = [_photo URLForSize:CGSizeMake(maxBoundsSize, maxBoundsSize)
+//                                andContentMode:UIViewContentModeScaleAspectFit];
+//        if (![self.urlPath isEqualToString:newUrl]) {
+//            self.urlPath = newUrl;
+//        }
+//    }
   CGFloat width = self.width;
   CGFloat height = self.height;
   CGFloat cx = self.bounds.origin.x + width/2;
