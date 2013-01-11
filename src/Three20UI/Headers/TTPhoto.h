@@ -27,7 +27,7 @@
 /**
  * The photo source that the photo belongs to.
  */
-@property (nonatomic, assign) id<TTPhotoSource> photoSource;
+@property (nonatomic, weak) id<TTPhotoSource> photoSource;
 
 /**
  * The size of the photo.
