@@ -141,6 +141,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   
   s.source_files = 'src/Three20/{Sources,Headers}/*.{h,m}'
+  s.compiler_flags = '-w'
   #s.header_mappings_dir = 'src/Three20/Headers'
   s.resources = 'src/Three20.bundle'
   
